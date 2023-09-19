@@ -26,4 +26,49 @@
     } else if ($prodi == 24) {
         echo "Sistem Informasi";
     }
+
+    // include/require
+    echo "<hr>";
+    require('mdp_helper.php');
+    echo get_prodi($prodi);
+
+    //silahkan buat array $mahasiswa
+    // key,npm, nama
+    // tampilkan data array $mahasiswa dalam bentuk tabel dengan kolom
+    //NPM | Nama | Program Studi
+    
+    echo "<hr>";
+    $mahasiswa = [
+        [
+            "npm" => 2226250068,
+            "nama" => "Rahmand",
+        ],
+        [
+            "npm" => 2226250069,
+            "nama" => "Reno",
+        ]
+
+    ];
+     echo "<table>
+        <tr>
+            <th>NPM</th>
+            <th>Nama</th>
+            <th>Program Studi</th>
+        </tr>
+        </thead>
+        <tbody>";
+    foreach ($mahasiswa as $row) {
+        echo "<tr>
+        <td>".$row["npm"]."</td>
+        <td>".$row["nama"]."</td>
+        <td>".get_prodi(substr($row["npm"],4,2))."</td>
+        </tr>";
+        
+    };
+        echo "</tbody></table>";
+        echo "<br>";
+        
+  
+   
+   
 ?>
